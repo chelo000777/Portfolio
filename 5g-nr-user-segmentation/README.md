@@ -107,6 +107,9 @@ Key relationships:
 - Terminal dimension → traffic tables (enrichment join)
 
 ---
+## Pipeline Diagram
+
+![5G NR Segmentation Pipeline Flow](./5G_NR_SEGMENTATION_PIPELINE_FLOW.png)
 
 ## How to Run
 
