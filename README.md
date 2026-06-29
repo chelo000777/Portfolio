@@ -28,7 +28,7 @@ HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capab
 
 `HiveSQL` `Hadoop` `Big Data` `Subscriber Segmentation` `Telecom Analytics`
 ---
-![5G NR Segmentation Pipeline Flow](./5G_NR_SEGMENTATION_PIPELINE_FLOW.png)
+
 ## CV
 
 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
