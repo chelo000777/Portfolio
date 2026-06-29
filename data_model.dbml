@@ -1,0 +1,276 @@
+// ==========================================================
+// 4G HIGH-VALUE POTENTIAL USERS / 5G ACCESS ANALYSIS
+// Source: 1. 4G HIGH VALUE POTENTIAL USERS_BO_2.sql
+// Compatible with dbdiagram.io
+// ==========================================================
+
+
+// ==========================================================
+// SCHEMAS
+// ==========================================================
+
+Project SmartCare_5G_User_Analysis {
+  database_type: 'Hive'
+  Note: '''
+  Logical data model for CRM subscriber segmentation and
+  5G N78 traffic analysis.
+
+  PREPAID:
+  tipo = 0
+
+  POSTPAID:
+  tipo = 1
+
+  SIM:
+  card = 0
+
+  USIM:
+  card = 1
+  '''
+}
+
+
+// ==========================================================
+// CRM TABLES
+// ==========================================================
+
+Table subscriber_db.x_crm_<PERIOD> {
+  msisdn varchar [not null, note: 'Subscriber MSISDN']
+  tipo varchar [note: '0 = PREPAID, 1 = POSTPAID']
+  card varchar [note: '0 = SIM, 1 = USIM']
+
+  indexes {
+    msisdn [name: 'idx_crm_msisdn']
+    tipo [name: 'idx_crm_tipo']
+    card [name: 'idx_crm_card']
+  }
+
+  Note: '''
+  Main CRM subscriber table for April 2026.
+
+  Approximate total users: [REDACTED].
+
+  This table is the source for:
+  - subscriber_db.x_crm_PREPAID
+  - subscriber_db.x_crm_POSTPAID
+  '''
+}
+
+
+Table subscriber_db.x_crm_PREPAID {
+  msisdn varchar [not null, note: 'Subscriber MSISDN']
+  tipo varchar [note: 'Expected value: 0']
+  card varchar [note: '0 = SIM, 1 = USIM']
+
+  indexes {
+    msisdn [name: 'idx_prepaid_msisdn']
+  }
+
+  Note: '''
+  Derived from subscriber_db.x_crm_<PERIOD>.
+
+  Filtering condition:
+  tipo = 0
+
+  Approximate users: [REDACTED].
+  Approximate share: ~95%.
+  '''
+}
+
+
+Table subscriber_db.x_crm_POSTPAID {
+  msisdn varchar [not null, note: 'Subscriber MSISDN']
+  tipo varchar [note: 'Expected value: 1']
+  card varchar [note: '0 = SIM, 1 = USIM']
+
+  indexes {
+    msisdn [name: 'idx_postpaid_msisdn']
+  }
+
+  Note: '''
+  Derived from subscriber_db.x_crm_<PERIOD>.
+
+  Filtering condition:
+  tipo = 1
+
+  Approximate users: [REDACTED].
+  Approximate share: ~5%.
+  '''
+}
+
+
+// ==========================================================
+// SOURCE TRAFFIC TABLE
+// ==========================================================
+
+Table traffic_db.SDR_FLOW_SUBSCRIBER_1DAY_<PARTITION> {
+  batchno bigint [not null, note: 'Processing date or batch identifier']
+  msisdn varchar [not null, note: 'Subscriber MSISDN']
+  imsi varchar [note: 'International Mobile Subscriber Identity']
+  tac varchar [note: 'Terminal Allocation Code']
+  rat bigint [note: 'Radio Access Technology; RAT 9 used for 5G']
+  l4_ul_throughput double [note: 'Layer 4 uplink traffic']
+  l4_dw_throughput double [note: 'Layer 4 downlink traffic']
+
+  indexes {
+    (batchno, msisdn, tac) [name: 'idx_flow_batch_msisdn_tac']
+    msisdn [name: 'idx_flow_msisdn']
+    tac [name: 'idx_flow_tac']
+    imsi [name: 'idx_flow_imsi']
+    rat [name: 'idx_flow_rat']
+  }
+
+  Note: '''
+  Daily subscriber traffic source table.
+
+  Applied SQL filters:
+  - IMSI begins with 73602
+  - Date between 2026-05-18 and 2026-05-24
+  - RAT = 9
+  - TAC exists in the N78 terminal list
+  '''
+}
+
+
+// ==========================================================
+// 5G N78 TERMINAL REFERENCE
+// ==========================================================
+
+Table network_db.tac_5G_terminal_n78 {
+  tac varchar [not null, note: 'TAC supporting 5G N78']
+
+  indexes {
+    tac [name: 'idx_n78_tac']
+  }
+
+  Note: '''
+  Reference list of terminal TAC values supporting
+  the 5G N78 frequency band.
+  '''
+}
+
+
+// ==========================================================
+// TERMINAL DIMENSION
+// ==========================================================
+
+Table network_db.dim_terminal {
+  tac varchar [not null, note: 'Terminal Allocation Code']
+  TER_BRAND_NAME varchar [note: 'Terminal manufacturer']
+  TER_MODEL_NAME varchar [note: 'Commercial terminal model']
+  TER_MODENAME varchar [note: 'Normalized terminal mode or model name']
+  TER_TYPE_NAME_EN varchar [note: 'Terminal type in English']
+
+  indexes {
+    tac [name: 'idx_dim_terminal_tac']
+  }
+
+  Note: '''
+  Terminal reference dimension.
+
+  Used to enrich traffic records with terminal brand,
+  model, mode and terminal type.
+  '''
+}
+
+
+// ==========================================================
+// AGGREGATED 5G TRAFFIC OUTPUT
+// ==========================================================
+
+Table subscriber_db.tmp_5G_TRAFFIC_1W {
+  day date [not null, note: 'Traffic date derived from batchno']
+  msisdn varchar [not null, note: 'Subscriber MSISDN']
+  tac varchar [not null, note: 'Terminal Allocation Code']
+  TER_BRAND_NAME varchar [note: 'Terminal manufacturer']
+  TER_MODEL_NAME varchar [note: 'Terminal model']
+  TER_MODENAME varchar [note: 'Normalized terminal mode']
+  TER_TYPE_NAME_EN varchar [note: 'Terminal type']
+  rat bigint [not null, note: 'Radio Access Technology; expected value: 9']
+  PS_Traffic_GB double [note: 'Total uplink and downlink traffic in GB']
+
+  indexes {
+    (day, msisdn, tac, rat) [name: 'idx_5g_traffic_grain']
+    msisdn [name: 'idx_5g_traffic_msisdn']
+    tac [name: 'idx_5g_traffic_tac']
+    day [name: 'idx_5g_traffic_day']
+  }
+
+  Note: '''
+  Aggregated weekly 5G traffic table.
+
+  Analytical grain:
+  - day
+  - msisdn
+  - tac
+  - terminal attributes
+  - rat
+
+  PS_Traffic_GB calculation:
+
+  SUM(
+      l4_ul_throughput +
+      l4_dw_throughput
+  ) / 1024 / 1024 / 1024
+
+  Period:
+  <ANALYSIS_PERIOD_START> through <ANALYSIS_PERIOD_END>.
+
+  Only 5G RAT 9 traffic from N78-compatible terminals
+  is included.
+  '''
+}
+
+
+// ==========================================================
+// LOGICAL RELATIONSHIPS
+// ==========================================================
+
+// Main CRM to PREPAID subset.
+// One CRM record can produce zero or one PREPAID record.
+Ref crm_to_prepaid {
+  subscriber_db.x_crm_<PERIOD>.msisdn - subscriber_db.x_crm_PREPAID.msisdn
+}
+
+
+// Main CRM to POSTPAID subset.
+// One CRM record can produce zero or one POSTPAID record.
+Ref crm_to_postpaid {
+  subscriber_db.x_crm_<PERIOD>.msisdn - subscriber_db.x_crm_POSTPAID.msisdn
+}
+
+
+// One CRM subscriber can generate multiple source traffic records.
+Ref crm_to_source_traffic {
+  subscriber_db.x_crm_<PERIOD>.msisdn < traffic_db.SDR_FLOW_SUBSCRIBER_1DAY_<PARTITION>.msisdn
+}
+
+
+// One CRM subscriber can generate multiple aggregated daily records.
+Ref crm_to_5g_traffic {
+  subscriber_db.x_crm_<PERIOD>.msisdn < subscriber_db.tmp_5G_TRAFFIC_1W.msisdn
+}
+
+
+// Multiple source traffic records can use the same N78 TAC.
+Ref n78_terminal_to_source_traffic {
+  network_db.tac_5G_terminal_n78.tac < traffic_db.SDR_FLOW_SUBSCRIBER_1DAY_<PARTITION>.tac
+}
+
+
+// Multiple source traffic records can use the same terminal TAC.
+Ref terminal_to_source_traffic {
+  network_db.dim_terminal.tac < traffic_db.SDR_FLOW_SUBSCRIBER_1DAY_<PARTITION>.tac
+}
+
+
+// One terminal TAC can appear in multiple aggregated traffic records.
+Ref terminal_to_aggregated_traffic {
+  network_db.dim_terminal.tac < subscriber_db.tmp_5G_TRAFFIC_1W.tac
+}
+
+
+// One N78-compatible TAC can appear in multiple aggregated records.
+Ref n78_terminal_to_aggregated_traffic {
+  network_db.tac_5G_terminal_n78.tac < subscriber_db.tmp_5G_TRAFFIC_1W.tac
+}
