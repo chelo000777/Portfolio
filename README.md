@@ -27,8 +27,8 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capability, observed NR traffic, legacy data consumption, geographic coverage, and NR switch status — producing actionable commercial campaign exports for postpaid and prepaid segments.
 
 `HiveSQL` `Hadoop` `Big Data` `Subscriber Segmentation` `Telecom Analytics`
----
 
+---
 ## CV
 
 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
