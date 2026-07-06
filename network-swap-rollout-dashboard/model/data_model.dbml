@@ -1,0 +1,113 @@
+// Network Swap Rollout Dashboard — data model
+// Paste into https://dbdiagram.io to render the ERD.
+// Company, site, and employee names are anonymized generic placeholders;
+// column names match the production Power BI model.
+
+Table Calendar {
+  Date date [pk]
+  Year int
+  "Month Number" int
+  Month varchar
+  Quarter varchar
+  Weekday varchar
+  Note: "Standard date table. Drives all time intelligence via active/inactive relationships."
+}
+
+Table Input_Rollout_Report {
+  SiteID varchar [pk]
+  "MOS_Plan End Date" date
+  "MOS_Actual End Date" date
+  "TDI(SWAP)_Plan End Date" date
+  "TDI(SWAP)_Actual End Date" date
+  "QC_Plan End Date" date
+  "QC_Actual End Date" date
+  "ATP_Plan End Date" date
+  "ATP_Actual End Date" date
+  "Reverse Logistic_Plan End Date" date
+  "Reverse Logistic_Actual End Date" date
+  "Pre Installation_Plan Start Date" date
+  "Pre Installation_Plan End Date" date
+  "Pre Installation_Actual Start Date" date
+  "Pre Installation_Actual End Date" date
+  Note: "One row per site. Each rollout stage has its own plan/actual date, each with its own inactive relationship to Calendar."
+}
+
+Table Input_Clock_Report {
+  Account varchar
+  Name varchar
+  Company varchar
+  "Clock Time" datetime
+  "Clock In/Out" varchar
+  "Customer Site Name" varchar
+  Note: "Raw clock-in/out events. One row per scan. Company/Name are anonymized in this published version."
+}
+
+Table Input_Total_teams {
+  DATE date
+  QTY_TEAMS int
+  Note: "Daily snapshot of how many field teams were deployed."
+}
+
+Table P_subcontractor_DB {
+  Company varchar
+  Account varchar
+  Name varchar
+  Note: "Distinct roster derived from Input_Clock_Report (SUMMARIZE), not a separate source system."
+}
+
+Table BY_DAY_CLOCK_USE {
+  Company varchar
+  "No. Grupos" int
+  Note: "Row count per company, derived from P_subcontractor_DB."
+}
+
+Table SUBCON_ANALYSIS_BY_DAY_2 {
+  Company varchar
+  Account varchar
+  Name varchar
+  "Clock In/Out" varchar
+  "Customer Site Name" varchar
+  DATE date
+  Clock_In_2 datetime
+  Clock_Out_2 datetime
+  ClockInColor varchar
+  Note: "Per-technician daily first clock-in / last clock-out, plus a punctuality flag (ClockInColor) used for conditional formatting."
+}
+
+Table "MILESTONE TRACKING" {
+  "MILESTONE TRACKING" varchar
+  "MILESTONE TRACKING Fields" varchar [note: 'hidden, drives which Input_Rollout_Report measure each label maps to']
+  "MILESTONE TRACKING Order" int [note: 'hidden']
+  Note: "Disconnected parameter table used to let one visual switch between MOS / Swap / QC / ATP / Rev Logistic measures."
+}
+
+Table _KPIs_Executive {
+  _Key int [note: 'placeholder single row, table exists only to host measures']
+  Note: "Measures-only table: Overall Rollout Progress %, stage completion %, on-time rate, Daily Active Technicians, Punctuality Rate, Avg Teams Deployed, Stage Completion Count. See measures/DAX_measures.md."
+}
+
+Table _StageShare {
+  Stage varchar
+  "Stage Order" int [note: 'hidden, sort order']
+  Note: "Disconnected 4-row table (MOS, Swap, QC, ATP) driving the completion-share donut. Paired with the Stage Completion Count measure."
+}
+
+Table _WeekdayAttendance {
+  Weekday varchar
+  WeekdayNum int [note: 'hidden, sort order']
+  Technicians int
+  Note: "Calculated table: distinct technicians per weekday, derived from Input_Clock_Report via ADDCOLUMNS + SUMMARIZE. Feeds the weekday attendance bar chart."
+}
+
+Ref: Input_Rollout_Report."MOS_Plan End Date" > Calendar.Date
+Ref: Input_Rollout_Report."MOS_Actual End Date" > Calendar.Date
+Ref: Input_Rollout_Report."TDI(SWAP)_Plan End Date" > Calendar.Date
+Ref: Input_Rollout_Report."TDI(SWAP)_Actual End Date" > Calendar.Date
+Ref: Input_Rollout_Report."QC_Plan End Date" > Calendar.Date
+Ref: Input_Rollout_Report."QC_Actual End Date" > Calendar.Date
+Ref: Input_Rollout_Report."ATP_Plan End Date" > Calendar.Date
+Ref: Input_Rollout_Report."ATP_Actual End Date" > Calendar.Date
+Ref: Input_Clock_Report."Clock Time" > Calendar.Date
+Ref: Input_Total_teams.DATE > Calendar.Date
+Ref: P_subcontractor_DB.Company > Input_Clock_Report.Company
+Ref: SUBCON_ANALYSIS_BY_DAY_2.Company > Input_Clock_Report.Company

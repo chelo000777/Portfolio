@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Network Swap Rollout — Executive Dashboard Preview</title>
+<style>
+  :root {
+    --bg: #14161a;
+    --surface-1: #1e2126;
+    --surface-2: #262a31;
+    --text-primary: #f2f3f5;
+    --text-secondary: #9aa0aa;
+    --text-muted: #6b7280;
+    --border: #2f333a;
+    --success: #1baf7a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 32px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0 0 24px;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .kpi-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
+  }
+  .kpi-value {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .kpi-delta {
+    font-size: 12px;
+    margin: 8px 0 0;
+    color: var(--text-muted);
+  }
+  .kpi-delta.up { color: var(--success); }
+  .panels {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .panel-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .panel-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+  .chart-box { position: relative; height: 220px; }
+  .chart-box.short { height: 190px; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  footer {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Network swap rollout — executive summary</h1>
+  <p class="subtitle">Illustrative preview with anonymized sample data. Built on top of the Power BI semantic model in this repo.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <p class="kpi-label">Overall rollout progress</p>
+      <p class="kpi-value">71%</p>
+      <p class="kpi-delta up">&#8593; 4 pts vs last week</p>
+    </div>
+    <div class="kpi-card">
+      <p class="kpi-label">Sites pending swap</p>
+      <p class="kpi-value">86</p>
+      <p class="kpi-delta">of 312 planned</p>
+    </div>
+    <div class="kpi-card">
+      <p class="kpi-label">Daily active technicians</p>
+      <p class="kpi-value">47</p>
+      <p class="kpi-delta">across 3 subcontractors</p>
+    </div>
+    <div class="kpi-card">
+      <p class="kpi-label">Punctuality rate</p>
+      <p class="kpi-value">88%</p>
+      <p class="kpi-delta">clock-in before 9:30</p>
+    </div>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <p class="panel-title">Swap progress, plan vs actual</p>
+      <p class="panel-sub">Last 8 weeks</p>
+      <div class="chart-box">
+        <canvas id="swapTrend" role="img" aria-label="Line chart comparing planned versus actual cumulative swap completions over 8 weeks, actual tracking slightly behind plan"></canvas>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="panel-title">Completion share by stage</p>
+      <div class="chart-box short">
+        <canvas id="stageDonut" role="img" aria-label="Donut chart of completed sites by rollout stage: MOS 34 percent, Swap 29 percent, QC 22 percent, ATP 15 percent"></canvas>
+      </div>
+      <div class="legend">
+        <span><span class="dot" style="background:#2a78d6"></span>MOS 34%</span>
+        <span><span class="dot" style="background:#1baf7a"></span>Swap 29%</span>
+        <span><span class="dot" style="background:#eda100"></span>QC 22%</span>
+        <span><span class="dot" style="background:#4a3aa7"></span>ATP 15%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Technicians clocked in by weekday</p>
+    <div class="chart-box short">
+      <canvas id="weekdayBar" role="img" aria-label="Bar chart of technicians clocked in per weekday, Monday through Saturday, peaking midweek"></canvas>
+    </div>
+  </div>
+
+  <footer>Sample data for illustration only. Source model: see /model/data_model.dbml and /measures/DAX_measures.md in this repo.</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+Chart.defaults.color = '#9aa0aa';
+const grid = 'rgba(154,160,170,0.12)';
+
+new Chart(document.getElementById('swapTrend'), {
+  type: 'line',
+  data: {
+    labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+    datasets: [
+      { label: 'Plan', data: [40,80,120,160,200,240,280,312], borderColor: '#6b7280', borderDash: [4,3], pointRadius: 0, borderWidth: 2, tension: 0.3 },
+      { label: 'Actual', data: [35,70,102,140,175,205,238,226], borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.15)', fill: true, pointRadius: 3, pointBackgroundColor: '#2a78d6', borderWidth: 2, tension: 0.3 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { grid: { color: grid } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('stageDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['MOS','Swap','QC','ATP'],
+    datasets: [{ data: [34,29,22,15], backgroundColor: ['#2a78d6','#1baf7a','#eda100','#4a3aa7'], borderColor: '#1e2126', borderWidth: 2 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '68%',
+    plugins: { legend: { display: false } }
+  }
+});
+
+new Chart(document.getElementById('weekdayBar'), {
+  type: 'bar',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat'],
+    datasets: [{ data: [38,44,47,45,41,19], backgroundColor: '#1baf7a', borderRadius: 4, maxBarThickness: 28 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { grid: { color: grid } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
