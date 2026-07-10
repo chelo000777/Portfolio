@@ -1,4 +1,4 @@
-# 5G Potential User Segmentation & NR Activation Analysis
+# 5G Potential User Segmentation & NR Activation Analysis (SQL, HIVESQL)
 
 **Domain:** Telecommunications · Commercial Analytics  
 **Scale:** Millions of CRM subscribers · 31-day traffic analysis period  
