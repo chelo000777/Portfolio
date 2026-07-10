@@ -23,10 +23,17 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 
 ## Projects
 
+## Projects
+
 ### [5G NR User Segmentation & NR Activation Analysis](./5g-nr-user-segmentation/)
 HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capability, observed NR traffic, legacy data consumption, geographic coverage, and NR switch status — producing actionable commercial campaign exports for postpaid and prepaid segments.
 
 `HiveSQL` `Hadoop` `Big Data` `Subscriber Segmentation` `Telecom Analytics`
+
+### [Network Swap Rollout Dashboard (Power BI)](./network-swap-rollout-dashboard/)
+Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout progress by stage (MOS, Swap, QC, ATP), milestone plan-vs-actual trends, and subcontractor field-team attendance and punctuality.
+
+`Power BI` `DAX` `Power Query` `KPI Dashboard` `Field Operations`
 
 ---
 ## CV
