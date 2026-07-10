@@ -32,7 +32,9 @@ HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capab
 Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout progress by stage (MOS, Swap, QC, ATP), milestone plan-vs-actual trends, and subcontractor field-team attendance and punctuality.
 
 `Power BI` `DAX` `Power Query` `KPI Dashboard` `Field Operations`
-![Executive KPI Summary dashboard] (./network-swap-rollout-dashboard/screenshots/DASHBOARD.png)
+
+[![Executive KPI Summary dashboard](./network-swap-rollout-dashboard/screenshots/DASHBOARD.png)](./network-swap-rollout-dashboard/)
+
 ---
 ## CV
 
