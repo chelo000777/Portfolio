@@ -133,22 +133,7 @@ list. Highlights:
 These live in a dedicated _KPIs_Executive measures table so they're easy
 to find in the field list and don't clutter the input tables.
 ## Dashboard
-An executive summary page in the Power BI report itself: KPI cards
-(rollout progress, sites pending, active technicians, punctuality),
-a plan-vs-actual swap trend, a completion-share donut by rollout stage,
-and a weekday technician-attendance bar chart — dark themed to match
-the preview below.
-See [preview/dashboard_preview.html](preview/dashboard_preview.html)
-for a standalone HTML preview (sample data — open directly in a browser
-or embed via GitHub Pages). The live Power BI report link is in my
-[portfolio index](https://github.com/chelo000777/portfolio).
-## Tools
-Power BI (Power Query, DAX, PBIP project format), modeled in Power BI
-Desktop. Sanitized company/site/employee names throughout; see
-model/data_model.dbml for the generic column and table names used.
-## Author
-Juan Marcelo Párraga Calizaya — [LinkedIn](https://linkedin.com/in/marcelo-parraga) · [Portfolio](https://github.com/chelo000777/portfolio)Show moreOrganized screenshots and integrated visual documentation into READMEOrganized screenshots and integrated visual documentation into READMEHere's the updated README with a screenshots section added — insert this right after the ## Dashboard section (before ## Tools):
-markdown## Dashboard
+## Dashboard
 
 An executive summary page in the Power BI report itself: KPI cards
 (rollout progress, sites pending, active technicians, punctuality),
@@ -169,6 +154,7 @@ or embed via GitHub Pages). The live Power BI report link is in my
 **Data model**
 ![Data model diagram](screenshots/DATA_MODEL.png)
 
+## Tools
 ## Tools
 
 Power BI (Power Query, DAX, PBIP project format), modeled in Power BI
