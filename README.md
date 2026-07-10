@@ -28,6 +28,10 @@ HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capab
 
 `HiveSQL` `Hadoop` `Big Data` `Subscriber Segmentation` `Telecom Analytics`
 
+
+[![SQL_DATA_STRUCTURE(./5g-nr-user-segmentation/5G_NR_SEGMENTATION_PIPELINE_FLOW.png)](./5g-nr-user-segmentationd/)
+
+
 ### [Network Swap Rollout Dashboard (Power BI)](./network-swap-rollout-dashboard/)
 Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout progress by stage (MOS, Swap, QC, ATP), milestone plan-vs-actual trends, and subcontractor field-team attendance and punctuality.
 
