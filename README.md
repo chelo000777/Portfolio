@@ -32,6 +32,7 @@ HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capab
 ## CV
 
 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
+📄 [Download CV (Espanol)](./cv/CV_Marcelo_Parraga_ES_2026.docx.docx)
 
 ---
 
