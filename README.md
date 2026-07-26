@@ -54,7 +54,7 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 ## Power BI Live Dashboards (Just click and check that dashboards lives in a cloud enviroment)
 
-- [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiYTBmNDdmYjAtYzQ4Yi00ZGU1LWFhOTctODlkYzY5ZjVhZGNkIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+- [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiMDc3MWYxY2ItYTk1My00YTBmLWI0ZTEtZmFhY2Q2N2I0YmUwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 - [Transmission Network Traffic & Error Monitoring](https://app.powerbi.com/view?r=eyJrIjoiNmIzOWIzNWMtM2RjMy00ODY2LWJkYzAtZWJmNGEzNGEyNjE2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 - [Retail Bank Analytics - PostgreSQL + PowerBi](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 ---
