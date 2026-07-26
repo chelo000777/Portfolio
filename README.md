@@ -56,8 +56,7 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 - [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiYTBmNDdmYjAtYzQ4Yi00ZGU1LWFhOTctODlkYzY5ZjVhZGNkIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 - [Transmission Network Traffic & Error Monitoring](https://app.powerbi.com/view?r=eyJrIjoiNmIzOWIzNWMtM2RjMy00ODY2LWJkYzAtZWJmNGEzNGEyNjE2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
-- [Retail Bank Analytics - PostgreSQL + PowerBi](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)(<iframe title="Retail_Bank_Analytics" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" frameborder="0" allowFullScreen="true"></iframe>)
-
+- [Retail Bank Analytics - PostgreSQL + PowerBi](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 ---
 
 *Last updated: July 2026*
