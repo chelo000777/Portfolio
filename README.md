@@ -42,7 +42,7 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 `Power BI` `DAX` `Power Query` `KPI Dashboard` `Field Operations`
 
-[![Executive KPI Summary dashboard](./network-swap-rollout-dashboard/screenshots/DASHBOARD.png)](./network-swap-rollout-dashboard/)
+[![Executive KPI Summary dashboard](./network-swap-rollout-dashboard/screenshots/DASHBOARD_1.png)](./network-swap-rollout-dashboard/)
 
 ---
 ## CV
