@@ -24,14 +24,17 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 ## Projects
 
 ### [Retail Banking Analytics — SQL + Power BI Case Study](./banking-analytics-sql-powerbi/)
-Live Dashboard [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiMDc3MWYxY2ItYTk1My00YTBmLWI0ZTEtZmFhY2Q2N2I0YmUwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+
 End-to-end analytics case study on a retail banking dataset: 8 progressively advanced SQL queries (CTEs, window functions, rolling date anchors) feeding a 3-page Power BI executive dashboard with 9 explicit DAX measures and a dedicated date dimension.
 
 `PostgreSQL` `Window Functions` `DAX` `Power BI` `Data Modeling`
 
+🔴 **[Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)**
+
 [![Executive Summary dashboard](./banking-analytics-sql-powerbi/screenshots/01-executive-summary.png)](./banking-analytics-sql-powerbi/)
 
 ### [5G NR User Segmentation & NR Activation Analysis (HiveSQL)](./5g-nr-user-segmentation/)
+
 HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capability, observed NR traffic, legacy data consumption, geographic coverage, and NR switch status — producing actionable commercial campaign exports for postpaid and prepaid segments.
 
 `HiveSQL` `Hadoop` `Big Data` `Subscriber Segmentation` `Telecom Analytics`
@@ -39,6 +42,7 @@ HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capab
 [![SQL_DATA_STRUCTURE](./5g-nr-user-segmentation/5G_NR_SEGMENTATION_PIPELINE_FLOW.png)](./5g-nr-user-segmentation/)
 
 ### [Network Equipment Installation Rollout Dashboard (Power BI)](./network-swap-rollout-dashboard/)
+
 Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout progress by stage (MOS, Swap, QC, ATP), milestone plan-vs-actual trends, and subcontractor field-team attendance and punctuality.
 
 `Power BI` `DAX` `Power Query` `KPI Dashboard` `Field Operations`
@@ -46,6 +50,7 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 [![Executive KPI Summary dashboard](./network-swap-rollout-dashboard/screenshots/DASHBOARD_1.png)](./network-swap-rollout-dashboard/)
 
 ---
+
 ## CV
 
 - 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
@@ -53,11 +58,14 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 ---
 
-## Power BI Live Dashboards (Just click and check that dashboards lives in a cloud enviroment)
+## Power BI Live Dashboards
 
+*Click through — these dashboards are hosted live in Power BI's cloud service.*
+
+- [Retail Bank Analytics — PostgreSQL + Power BI](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 - [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiMDc3MWYxY2ItYTk1My00YTBmLWI0ZTEtZmFhY2Q2N2I0YmUwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 - [Transmission Network Traffic & Error Monitoring](https://app.powerbi.com/view?r=eyJrIjoiNmIzOWIzNWMtM2RjMy00ODY2LWJkYzAtZWJmNGEzNGEyNjE2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
-- [Retail Bank Analytics - PostgreSQL + PowerBi](https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+
 ---
 
 *Last updated: July 2026*
