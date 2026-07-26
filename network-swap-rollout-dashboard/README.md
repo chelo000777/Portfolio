@@ -66,7 +66,7 @@ or embed via GitHub Pages). The live Power BI report link is in my
 ## Screenshots
 
 **Executive dashboard**
-![Executive KPI Summary dashboard](screenshots/DASHBOARD_1.png)
+![Executive KPI Summary dashboard](screenshots/DASHBOARD.png)
 
 **Data model**
 ![Data model diagram](screenshots/DATA_MODEL.png)
