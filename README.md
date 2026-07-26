@@ -47,7 +47,10 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 `Power BI` `DAX` `Power Query` `KPI Dashboard` `Field Operations`
 
+🔴 **[Live Dashboard]([https://app.powerbi.com/view?r=eyJrIjoiNDIyMDY1OWItMzU5ZS00YWRkLWIzZTktMTcyOWJiNzVkN2Y4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9](https://app.powerbi.com/view?r=eyJrIjoiMDc3MWYxY2ItYTk1My00YTBmLWI0ZTEtZmFhY2Q2N2I0YmUwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9))**
+
 [![Executive KPI Summary dashboard](./network-swap-rollout-dashboard/screenshots/DASHBOARD_1.png)](./network-swap-rollout-dashboard/)
+
 
 ---
 
