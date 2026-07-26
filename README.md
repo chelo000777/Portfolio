@@ -24,6 +24,7 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 ## Projects
 
 ### [Retail Banking Analytics — SQL + Power BI Case Study](./banking-analytics-sql-powerbi/)
+Live Dashboard [Executive Dashboard — Multi-Team Task Execution Monitoring](https://app.powerbi.com/view?r=eyJrIjoiMDc3MWYxY2ItYTk1My00YTBmLWI0ZTEtZmFhY2Q2N2I0YmUwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 End-to-end analytics case study on a retail banking dataset: 8 progressively advanced SQL queries (CTEs, window functions, rolling date anchors) feeding a 3-page Power BI executive dashboard with 9 explicit DAX measures and a dedicated date dimension.
 
 `PostgreSQL` `Window Functions` `DAX` `Power BI` `Data Modeling`
