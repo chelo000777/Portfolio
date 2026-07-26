@@ -20,6 +20,12 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 | OS | Linux · Windows |
 
 ---
+## CV
+
+- 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
+- 📄 [Download CV (Espanol)](./cv/CV_Marcelo_Parraga_ES_2026.docx.docx)
+
+---
 
 ## Projects
 
@@ -54,12 +60,6 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 ---
 
-## CV
-
-- 📄 [Download CV (English)](./cv/CV_Marcelo_Parraga_EN_2026_Polished.docx)
-- 📄 [Download CV (Espanol)](./cv/CV_Marcelo_Parraga_ES_2026.docx.docx)
-
----
 
 ## Power BI Live Dashboards
 
