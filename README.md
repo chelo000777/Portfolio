@@ -14,7 +14,7 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 | BI & Visualization | Power BI · Tableau · FineBI |
 | Languages | Python (pandas · NumPy · matplotlib · scikit-learn · geopandas) · SQL · R |
 | Big Data | Hadoop · Hive · Spark |
-| Databases | SQL Server · MongoDB |
+| Databases | PostgreSQL · SQL Server · MongoDB |
 | Automation | Power Query · Power Pivot · Advanced Excel · VBA |
 | GIS | QGIS · GeoPandas |
 | OS | Linux · Windows |
@@ -22,6 +22,13 @@ Data Analyst with 4+ years in analytics and 10+ years in telecommunications engi
 ---
 
 ## Projects
+
+### [Retail Banking Analytics — SQL + Power BI Case Study](./banking-analytics-sql-powerbi/)
+End-to-end analytics case study on a retail banking dataset: 8 progressively advanced SQL queries (CTEs, window functions, rolling date anchors) feeding a 3-page Power BI executive dashboard with 9 explicit DAX measures and a dedicated date dimension.
+
+`PostgreSQL` `Window Functions` `DAX` `Power BI` `Data Modeling`
+
+[![Executive Summary dashboard](./banking-analytics-sql-powerbi/screenshots/01-executive-summary.png)](./banking-analytics-sql-powerbi/)
 
 ### [5G NR User Segmentation & NR Activation Analysis (HiveSQL)](./5g-nr-user-segmentation/)
 HiveSQL pipeline for segmenting millions of CRM subscribers by 5G terminal capability, observed NR traffic, legacy data consumption, geographic coverage, and NR switch status — producing actionable commercial campaign exports for postpaid and prepaid segments.
@@ -52,4 +59,4 @@ Executive dashboard tracking a multi-stage telecom network-swap rollout: rollout
 
 ---
 
-*Last updated: June 2026*
+*Last updated: July 2026*
